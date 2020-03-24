@@ -1,0 +1,633 @@
+* {
+  box-sizing: border-box;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  // max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ContainerTimeline around content */
+.containerTimeline {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.containerTimeline::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: rgb(220, 252, 209);
+  border: 4px solid rgb(148, 185, 147);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the containerTimeline to the left */
+.left {
+  left: 0;
+}
+
+/* Place the containerTimeline to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left containerTimeline (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid red;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(220, 252, 209);
+}
+
+/* Add arrows to the right containerTimeline (pointing left) */
+.right::before {
+  // content: " ";
+  // height: 0;
+  // position: absolute;
+  // top: 22px;
+  // width: 0;
+  // z-index: 1;
+  // left: 30px;
+  // border: medium solid white;
+  // border-width: 10px 10px 10px 0;
+  // border-color: transparent rgb(220, 252, 209) transparent transparent;
+}
+
+/* Fix the circle for containerTimelines on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.contentTimeline {
+  padding: 20px 30px;
+  background-color: rgb(220, 252, 209);
+  position: relative;
+  border-radius: 6px;
+  // border: 1px solid black;
+  box-shadow: 0 0px 2px 2px rgb(185, 181, 181);
+}
+
+.contentTimeline:hover { 
+  background-color: rgb(77, 122, 63);
+  color: white;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+  
+  /* Full-width containers */
+  .containerTimeline {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .containerTimeline::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(220, 252, 209) transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+    left: 15px;
+  }
+  
+  /* Make all right containerTime.containerTimelines behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}
+// End of timeline
+
+.App {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  background-color: #ffffff;
+}
+
+.switch-wrapper {
+  position: relative;
+}
+ 
+// .switch-wrapper > div {
+//   position: absolute;
+// }
+
+.header1 {
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  color: black;
+  height: 80px;
+
+  .middle-header {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color:rgb(21, 75, 7);
+    background-image: linear-gradient(to bottom, rgb(21, 75, 7), #3f5c3b);
+  }
+
+  // ++++++++++Start Scroll navigator +++++++++
+  // .headerScroll {
+  //   // position: fixed;
+  //   top: 0;
+  //   z-index: 1;
+  //   // background-color: #f1f1f1;
+
+  //   .progress-container {
+  //     width: 100%;
+  //     height: 6px;
+  //     background: #a2eba6;
+    
+  //     .progress-bar {
+  //       height: 6px;
+  //       background: #4caf50;
+  //       width: 0%;
+  //     }
+  //   }
+  // }
+  // ++++++++++End of Scroll navigator +++++++++
+}
+
+#right-auth {
+
+  #dropdown-menu {
+    margin-right: 1px !important;
+
+    .menu {
+      background-color:rgb(18, 49, 10);
+      background-image: linear-gradient(to bottom, rgb(21, 75, 7), #4a5c48);
+    }
+    .item:hover {
+      background-color: #467442 !important;
+      padding: 10px;
+
+      a:hover {
+        color: rgb(255, 81, 0) !important;
+      }
+      
+    }
+  }
+}
+
+.logo-header {
+  // height: 60px !important;
+  height: auto !important;
+  width: 300px !important;
+  // width: auto !important;
+}
+
+.about-us-div {
+  margin-top: 50px;
+
+
+  p {
+    font-size: 17px;
+  }
+}
+
+.project-form {
+  width: 80%;
+  margin-left: 10%;
+
+  p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.Separator {
+  border: 2px solid #f36405;
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.contact-us-div {
+  background-color:#d0dacb;
+  // background-image: linear-gradient(to bottom, #dbd1d1, #677a5d);
+  margin-top: 30px;
+  padding: 10px;
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .button {
+    background-color: #f36405 !important;
+    // background-image: linear-gradient(to right, #f36405, #d46a23);
+    color: white !important;
+    height: 50px !important;
+    font-size: 18px !important;
+    float: right;
+  }
+
+  .button:hover {
+    background-color: #b45c21 !important;
+    // background-image: linear-gradient(to right, #c76d31, #f36405);
+  }
+
+}
+
+.form-inputs {
+  width: 70%;
+  margin-left: 15%;
+  background-color:#e4e7e2;
+  padding: 20px;
+  border-radius: 10px;
+  
+  .button {
+    background-color: #f36405 !important;
+    background-image: linear-gradient(to right, #f36405, #49d12d);
+    color: white !important;
+    height: 50px !important;
+    font-size: 18px !important;
+    float: right;
+  }
+
+  .button:hover {
+    background-color: #b45c21 !important;
+    background-image: linear-gradient(to right, #d46a23, #f36405);
+  }
+  
+  p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.project-div {
+  background-color:#dce4d8;
+  // background-image: linear-gradient(to bottom, #d2dbd1, #658f4f);
+  margin-top: 30px;
+  padding: 10px;
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .button {
+    background-color: #f36405 !important;
+    background-image: linear-gradient(to right, #f59f01, #26ff00);
+    color: white !important;
+    height: 50px !important;
+    float: right;
+    margin-top: 20px;
+    font-size: 20px !important;
+  }
+
+  .button:hover {
+    background-color: #b45c21 !important;
+    background-image: linear-gradient(to right, #d46a23, #f36405);
+  }
+}
+
+
+#column {
+  margin-bottom: 50px;
+}
+
+#home-card:hover {
+  // border-bottom: 1px solid #ff4806;
+  cursor: pointer;
+
+  .image-cover {
+    opacity: .8;
+  }
+
+  .dev-title {
+    transform: scale(1.2);
+    transition: 1s ease-in-out;
+  }
+
+  .developer-role {
+    color: rgb(255, 81, 0);
+    text-decoration: underline;
+  }
+
+  .extra{
+    .label {
+      color: white;
+      background-color: rgb(240, 87, 41);
+      transition: 1s ease-in-out;
+      transform: scale(1.05);
+    }
+  }
+}
+
+#home-card {
+  width: 80% !important;
+
+  .content > .header {
+    font-size: 22px !important;    
+  }
+
+  .dev-title {
+    color: white;
+    font-size: 16px;
+    background-color: rgb(40, 104, 24);
+  }
+}
+
+.image-cover {
+  height: 500px !important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+.footer {
+  margin-top: 200px;
+  padding: 20px;
+  // background-color:rgb(239, 245, 239);
+  color: black;
+  // background-image: linear-gradient(to bottom, #578154, #97b993);
+
+  .termsPrivacy  {
+
+    color: white;
+  
+    a {
+      color: black;
+      padding: 15px;
+      font-size: 17px;
+    }
+  
+    a:hover {
+      color: rgb(255, 81, 0);;
+      padding: 15px;
+    }
+  }
+}
+
+// Menubar or sidebar after login
+.sidebar {
+  font-size: 30px !important; 
+}
+
+.item {
+  color: rgb(238, 238, 228) !important;
+  font-weight: normal !important;
+}
+
+.item:hover {
+  color: white !important;
+}
+
+#logout {
+  color: white !important;
+  font-size: 20px !important;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-left: 40%;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+  border-radius: 60%;
+  border: 4px solid rgb(14, 17, 59);
+  border-color: rgb(14, 17, 59) transparent white transparent;
+  animation: lds-dual-ring 0.6s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"], 
+input[type="date"],
+select, 
+textarea,
+input[type="password"] {
+  width: 100% !important;
+  height: 45px;
+  border: none;
+  margin-bottom:20px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgb(185, 182, 182);
+}
+
+//==========Responsiviness======
+
+/* medium screen */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .header1 {
+
+    .middle-header {
+      margin-left: 0%;
+      margin-right: 0%;
+    }
+  }
+
+  .image-cover {
+    height: 350px !important;
+  }
+
+  // .logo-header {
+  //   height: auto !important;
+  //   width: 300px !important;
+  //   // width: auto !important;
+  // }
+}
+
+/* small screen */
+@media only screen and (min-width: 518px) and (max-width: 767px) { 
+  .header1 {
+
+    .middle-header {
+      margin-left: 0%;
+      margin-right: 0%;
+    }
+  }
+
+  #column {
+    margin-bottom: 50px;
+    width: 50% !important;
+  }
+  
+  #home-card {
+    width: 100% !important;
+  }
+  
+  .image-cover {
+    height: 280px !important;
+  }
+
+  .termsPrivacy  {
+  
+    a {
+      font-size: 16px !important;
+    }
+
+  }
+}
+
+/* Tiny devices  */
+@media only screen and (max-width: 517px) {
+// @media only screen and (min-width: 415px) and (max-width: 517px) { 
+  .header1 {
+    .middle-header {
+      margin-left: 0%;
+      margin-right: 0%;
+    }
+  }
+
+  .logo-header {
+    height: auto !important;
+    width: 200px !important;
+    // width: auto !important;
+  }
+
+  #right-auth {
+    
+    #dropdown-menu {
+      margin-right: 1px !important;
+
+      .menu {
+        background-color:rgb(18, 49, 10);
+        background-image: linear-gradient(to bottom, rgb(21, 75, 7), #4a5c48);
+      }
+    }
+  }
+
+  h1 {
+    font-size: 25px !important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+    color: rgb(29, 112, 61) !important;
+  }
+
+  .Separator {
+    border: 2px dashed #f36405;
+    width: 70%;
+  }
+
+  .about-us-div {
+    margin-top: 20px;
+  
+    p {
+      font-size: 14px;
+    }
+  }
+
+  #column {
+    margin-bottom: 20px;
+    width: 100% !important;
+  }
+
+  #project-column {
+    margin-bottom: 20px;
+    width: 100% !important;
+
+    .project-form {
+      width: 98% !important;
+      margin-left: 1%;
+      
+        p {
+          font-size: 14px;
+          font-weight: bold;
+        }
+    }
+
+  }
+
+  .project-div {
+    .button {
+      height: 50px !important;
+      width: 100% !important;
+      margin-top: 10px !important;
+      font-size: 20px !important;
+      padding: 5px;
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+
+  #Button {
+    width: 100% !important;
+  }
+  
+  #home-card {
+    width: 100% !important;
+  }
+  
+  .image-cover {
+    height: 400px !important;
+  }
+
+  .form-inputs {
+    width: 98%;
+    margin-left: 1%;
+    background-color:#eff5ec;
+    
+    .button {
+      width: 100%;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .footer {
+    margin-top: 50px;
+    padding: 8px;
+    // background-color:rgb(10, 41, 10);
+    
+    .termsPrivacy  {
+      a {
+        font-size: 13px !important;
+      }
+
+    }
+  }
+  
+}

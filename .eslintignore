@@ -1,0 +1,5 @@
+node_modules/
+/build/**
+/src/**/*.test.js
+/src/__tests__
+/src/__mocks__

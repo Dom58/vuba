@@ -1,0 +1,23 @@
+export default {
+  translation: {
+    Menu: 'Ibirimo',
+    Home: 'Ahabanza',
+    More: 'Ibindi',
+    Welcome: 'Ikaze',
+    Login: 'Kwinjira',
+    Register: 'Kwiyandikisha',
+    'My profile': 'Umwirondoro Wange',
+    Dashboard: 'Dashboard',
+    'Create new Car': 'Andika Imodoka Nshya',
+    Logout: 'Sohokamo',
+    Company: 'Kompanyi',
+    'About Us': 'Abo Turibo',
+    Support: 'Ubufasha',
+    Help: 'Ubufasha',
+    'Contact Us': 'Duhamagare',
+    Connect: 'Connect',
+    Privacy: 'Privacy',
+    'Terms of use': "Amategeko n' amabwirizwa",
+    'Show Password': 'Garagaza ijambo banga',
+  },
+};
