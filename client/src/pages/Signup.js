@@ -10,6 +10,7 @@ import { CREATE_USER } from '../graphql/mutations/users';
 import displayError from '../helpers/displayError';
 import SignupForm from '../components/SignupForm';
 import MainHeader from '../components/MainHeader';
+import Footer from '../components/Footer';
 
 function Signup() {
   const history = useHistory();
@@ -98,7 +99,7 @@ function Signup() {
       </Container>
       
       <br />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

@@ -48,7 +48,7 @@ const LoginForm = ({
             {lang.t('LOGIN')}
           </Button>
           <h3>
-            New User? <Link to="/auth/signup">Subscribe Here</Link>
+            New user? <Link to="/auth/signup"> Subscribe here</Link>
           </h3>
         </div>
       </div>

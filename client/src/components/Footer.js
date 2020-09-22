@@ -13,7 +13,7 @@ export default function Footer() {
               src={Logo}
               size="small"
               className="logo-footer"
-              style={{marginLeft: '35%'}}
+              style={{marginLeft: '40%'}}
               title="vubaRwanda"
             />{' '}
             {/* <Spinner /> */}

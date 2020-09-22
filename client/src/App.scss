@@ -56,7 +56,7 @@
 }
 
 /* Add arrows to the right containerTimeline (pointing left) */
-.right::before {
+// .right::before {
   // content: " ";
   // height: 0;
   // position: absolute;
@@ -67,7 +67,7 @@
   // border: medium solid white;
   // border-width: 10px 10px 10px 0;
   // border-color: transparent rgb(220, 252, 209) transparent transparent;
-}
+// }
 
 /* Fix the circle for containerTimelines on the right side */
 .right::after {
@@ -127,7 +127,7 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
 }
 
 .switch-wrapper {
@@ -140,7 +140,7 @@
 
 .header1 {
   margin-bottom: 30px;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
   margin-bottom: 20px;
   color: black;
   height: 80px;
@@ -149,28 +149,32 @@
     margin-left: 10%;
     margin-right: 10%;
     background-color:rgb(21, 75, 7);
-    background-image: linear-gradient(to bottom, rgb(21, 75, 7), #3f5c3b);
+    background-image: linear-gradient(to top, rgb(21, 75, 7), #459150);
   }
 
   // ++++++++++Start Scroll navigator +++++++++
-  // .headerScroll {
-  //   // position: fixed;
-  //   top: 0;
-  //   z-index: 1;
-  //   // background-color: #f1f1f1;
+  .headerScroll {
+    // position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #f1f1f1;
+    // margin-top: 400px;
 
-  //   .progress-container {
-  //     width: 100%;
-  //     height: 6px;
-  //     background: #a2eba6;
+    .progress-container {
+      // position: fixed;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      height: 6px;
+      background: #a2eba6;
     
-  //     .progress-bar {
-  //       height: 6px;
-  //       background: #4caf50;
-  //       width: 0%;
-  //     }
-  //   }
-  // }
+      .progress-bar {
+        height: 6px;
+        background: #46a749;
+        width: 0%;
+      }
+    }
+  }
   // ++++++++++End of Scroll navigator +++++++++
 }
 
@@ -228,7 +232,7 @@
 }
 
 .contact-us-div {
-  background-color:#d0dacb;
+  // background-color:#d0dacb;
   // background-image: linear-gradient(to bottom, #dbd1d1, #677a5d);
   margin-top: 30px;
   padding: 10px;
@@ -280,8 +284,12 @@
   }
 }
 
+.project-services {
+  background-color:white;
+}
+
 .project-div {
-  background-color:#dce4d8;
+  // background-color:white;
   // background-image: linear-gradient(to bottom, #d2dbd1, #658f4f);
   margin-top: 30px;
   padding: 10px;
@@ -338,9 +346,13 @@
     }
   }
 }
+.logo-footer{
+  opacity: 0.6;
+}
 
 #home-card {
-  width: 80% !important;
+  // width: 80% !important;
+  width: 100% !important;
 
   .content > .header {
     font-size: 22px !important;    
@@ -357,6 +369,12 @@
   height: 500px !important;
   width: 100% !important;
   object-fit: cover;
+}
+
+.image-submit-project {
+  height: 800px !important;
+  width: 100% !important;
+  // object-fit: cover;
 }
 
 .footer {
@@ -504,6 +522,27 @@ input::placeholder {
     }
 
   }
+
+  .image-submit-project {
+    height: 400px !important;
+  }
+
+  #project-column {
+    // margin-bottom: 20px;
+    width: 100% !important;
+
+    .project-form {
+      width: 98% !important;
+      margin-left: 1%;
+      
+        p {
+          font-size: 14px;
+          font-weight: bold;
+        }
+    }
+
+  }
+  
 }
 
 /* Tiny devices  */
@@ -586,6 +625,10 @@ input::placeholder {
     .icon {
       font-size: 20px;
     }
+  }
+
+  .image-submit-project {
+    height: 200px !important;
   }
 
   #Button {

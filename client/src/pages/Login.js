@@ -10,6 +10,7 @@ import { LOGIN_USER } from '../graphql/mutations/users';
 import LoginForm from '../components/LoginForm';
 import displayError from '../helpers/displayError';
 import MainHeader from '../components/MainHeader';
+import Footer from '../components/Footer';
 
 function Login(props) {
   const history = useHistory();
@@ -90,7 +91,7 @@ function Login(props) {
       </Container>
       
       <br />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

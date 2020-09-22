@@ -12,24 +12,24 @@ function MainHeader(props) {
   
   // When the user scrolls the page, execute myFunction 
   
-  // window.onscroll = function() { myFunction() };
-  // const myFunction = () => {
-  //   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  //   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  //   var scrolled = (winScroll / height) * 100;
-  //   document.getElementById("myBar").style.width = scrolled + "%";
-  // }
+  window.onscroll = function() { myFunction() };
+  const myFunction = () => {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
 
   
   const { user, logout } = useContext(AuthContext);
   const menuBar = (
     <div className="header1">
 
-      {/* <div className="headerScroll" >
+      <div className="headerScroll" style={{}}>
         <div className="progress-container">
           <div className="progress-bar" id="myBar"></div>
         </div>  
-      </div> */}
+      </div>
 
       <div className="middle-header">
       <Menu

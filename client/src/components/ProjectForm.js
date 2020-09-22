@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import { Form, Button, Divider, Icon } from 'semantic-ui-react';
+import { Form, Button, Icon, Image } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
 import { withTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -9,6 +9,7 @@ import lang from '../utils/translations';
 import { AuthContext } from '../context/auth';
 import displayError from '../helpers/displayError';
 import { SUBMIT_PROJECT } from '../graphql/mutations/projectSubmitions';
+import SUBMIT_PROJECT_IMAGE from '../assets/submit.png';
 
 const ProjectForm = () => {
   const history = useHistory();
@@ -102,9 +103,15 @@ const ProjectForm = () => {
   return (
     <>
     <div className="column" id="project-column" style={{marginBottom: "80px"}}>
+      <div className=""> 
+        <div className="image" style={{marginTop: "10px"}}>
+          <Image src={ SUBMIT_PROJECT_IMAGE } alt="car" className="image-submit-project"/>
+        </div>
+      </div>
+    </div>
+
+    <div className="column" id="project-column" style={{marginBottom: "80px"}}>
       <div className="project-form">
-      <h1>{lang.t('Do you have a project that we can help you to develop?')}</h1>
-      <Divider />
       <h1>{lang.t('Fill This Form')}</h1>
       
       <div className="Separator"></div>

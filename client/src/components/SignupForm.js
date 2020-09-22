@@ -58,7 +58,7 @@ const SignupForm = ({
           <i className="send icon"></i> {lang.t('SUBSCRIBE')}
           </Button>
           <h3>
-            Have an Account? <Link to="/auth/login">Login here</Link>
+            Have an account? <Link to="/auth/login"> Login here</Link>
           </h3>
         </div>
       </div>

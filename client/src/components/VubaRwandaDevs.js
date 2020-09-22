@@ -45,7 +45,7 @@ const VubaRwandaDevs = () => {
           <Label>GraphQL</Label>
           <Label>MongoDB</Label>
           <Label>NPM</Label>
-          <Label>PHP/Laravel</Label>
+          <Label>PHP/ Laravel/ Yii</Label>
           <Label>Android / IOs</Label>
         </Label.Group>
         </div>
