@@ -4,6 +4,8 @@ export const SUBMIT_PROJECT = gql`
   mutation createProject(
     $fullName: String!
     $telephone: String!
+    $category_id: Int!
+    $companyAddress: String
     $email: String!
     $projectName: String!
     $companyName: String
@@ -13,6 +15,8 @@ export const SUBMIT_PROJECT = gql`
       data: {
         fullName: $fullName
         telephone: $telephone
+        category_id: $category_id
+        companyAddress: $companyAddress
         email: $email
         projectName: $projectName
         companyName: $companyName
@@ -25,6 +29,8 @@ export const SUBMIT_PROJECT = gql`
       email
       projectName
       companyName
+      companyAddress
+      category_id
       body
       createdAt
       updatedAt

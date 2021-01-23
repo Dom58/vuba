@@ -17,6 +17,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Project from './pages/DashboardProject';
 import ContactUs from './pages/DashbardContactUs';
+import DashbardProjectCategory from './pages/DashbardProjectCategory';
 // import Footer from './components/Footer';
 import { AuthProvider } from './context/auth';
 import {
@@ -90,6 +91,7 @@ export default () => (
             <AdminPrivateRoute path="/dashboard/ui/:email" component={Dashboard} />
             <AdminPrivateRoute path="/dashboard/all/projects" component={Project} />
             <AdminPrivateRoute path="/dashboard/all/feedback" component={ContactUs} />
+            <AdminPrivateRoute path="/dashboard/all/project-categories" component={DashbardProjectCategory} />
 
             <Route path="*" component={PageNotFound} />
           {/* </Switch> */}

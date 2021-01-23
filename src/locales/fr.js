@@ -25,6 +25,7 @@ const fr = {
   'Access denied!': 'Accès refusé!',
   'Project not found!': 'La Projet non trouvé',
   'Feedback not found!': 'Feedback not found!',
+  'Category not found!': 'Category not found!',
 
   // Success Messages
   'This account is now verified': 'Ce compte est maintenant vérifié',

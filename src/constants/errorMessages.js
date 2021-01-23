@@ -30,3 +30,4 @@ export const NOT_AUTHORIZED = lang => translate('Access denied!', lang);
 
 export const PROJECT_NOT_FOUND = lang => translate('Project not found!', lang);
 export const CONTACT_NOT_FOUND = lang => translate('Feedback not found!', lang);
+export const CATEGORY_NOT_FOUND = lang => translate('Category not found!', lang);

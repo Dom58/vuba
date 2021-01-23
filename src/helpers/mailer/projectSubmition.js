@@ -24,11 +24,11 @@ export const projectSubmitionUrl = async (email, fullName, telephone, projectNam
         <p style="font-size: 18px; padding: 30px;"> 
             Hi <b>${fullName} ,</b><br /> <br />
             
-            vubaRwanda have received your project # <b>${projectName}</b> # idea.
+            vubaRwanda Community have received your project # <b>${projectName}</b> # idea.
             <br /> <br />
-            We will be glad to help you to implement that by respecting our key points <br />
-            We will contact you on this ${email} or on <b> ${telephone} </b> very soon, inorder to collect the project requirements. <br /> 
-            And after we analyse your idea to make it a world class applications (<b>Web, android and IOs</b>).
+            We will be glad to help you to develop this project by respecting our key points <br />
+            We will contact you on this ${email} or on <b> ${telephone} </b> very soon, inorder to collect all project requirements. <br /> 
+            After we will analyse your idea to make it a world class applications.
             <br />
             <br /><br />
             Need help? 
@@ -44,7 +44,7 @@ export const projectSubmitionUrl = async (email, fullName, telephone, projectNam
             <br /><br /><br />
             Best regards, 
             <br /><br />
-            Team Vuba Rwanda
+            Team vubaRwanda
             <br />
             <a
                 href=${url}

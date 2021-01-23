@@ -1,5 +1,5 @@
 import { ApolloError } from 'apollo-server';
-import { ProjectSubmition } from '../database/models';
+import { ProjectSubmition, ProjectCategory } from '../database/models';
 import errorHandler from '../helpers/errorHandler';
 import { HTTP_NOT_FOUND } from '../constants/httpStatusCodes';
 import { SUCCESSFULLY_DELETED } from '../constants/successMessages';
@@ -41,6 +41,13 @@ export default class ProjectController {
 
     const projects = await ProjectSubmition.findAll({
       order: [['createdAt', 'DESC']],
+      include:[
+        {
+            as:"category",
+            model: ProjectCategory,
+            attributes:["id", "name", "value", "description"]
+        }
+    ]
     });
     
     return { data: projects };

@@ -25,6 +25,7 @@ const en = {
   'Access denied!': 'Access denied!',
   'Project not found!': 'Uyu mushinga ntubashije kuboneka',
   'Feedback not found!': 'Feedback not found!',
+  'Category not found!': 'Category not found!',
 
   // Success Messages
   'This account is now verified': 'This account is now verified',

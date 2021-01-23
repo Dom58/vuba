@@ -112,14 +112,11 @@ const ContactUsForm = () => {
       <div className="Separator"></div>
       {/* <p><b>{lang.t('Company')}:</b> Mudacumura Publishing House Ltd</p> */}
       <p><b>{lang.t('Address')}:</b> Kigali- Nyarugenge</p>
-      <p><b>{lang.t('Road')}:</b> KN 132 St, Kigali</p>
+      <p><b>{lang.t('Road')}:</b> KN 132 ST, Kigali</p>
       <p><b>{lang.t('Website')}: </b><a href="https://vubarwanda.herokuapp.com" target="_blank" rel="noopener noreferrer"> VubaRwanda</a> </p>
       <p><b>{lang.t('Tel')}: </b><a href="tel:+250788863488"  target="_blank" rel="noopener noreferrer"> (+250) 788863488</a></p>
       <p><b>{lang.t('Email')}: </b><a href="mailto:dndahimana58@gmail.com"  target="_blank" rel="noopener noreferrer"> dndahimana58@gmail.com</a></p>
 
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.2169452236583!2d30.062541273210545!3d-1.9654278810742822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5d71adcba55%3A0x83ba5b527bbefaec!2sKN%20132%20St%2C%20Kigali!5e0!3m2!1sen!2srw!4v1585996633448!5m2!1sen!2srw"
-      style={{ width:"98%", height:"450px", frameborder:"0", border:"1px solid rgb(18, 49, 10)", allowfullscreen:"true"}} id="company-map" title="googlemap">
-      </iframe>
     </div>
 
   <div className="column" id="column" style={{marginBottom: "80px"}}>
@@ -198,7 +195,7 @@ const ContactUsForm = () => {
           loading={loading}
           onClick={() => !loading && handleSubmit()}
         >
-        <i className="send icon"></i> {lang.t('Submit')}
+        <i className="send icon"></i> {lang.t('SUBMIT')}
         </Button>
       </Form>
     </div>

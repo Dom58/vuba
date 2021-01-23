@@ -12,24 +12,24 @@ function MainHeader(props) {
   
   // When the user scrolls the page, execute myFunction 
   
-  window.onscroll = function() { myFunction() };
-  const myFunction = () => {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
-    document.getElementById("myBar").style.width = scrolled + "%";
-  }
+  // window.onscroll = function() { myFunction() };
+  // const myFunction = () => {
+  //   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  //   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  //   var scrolled = (winScroll / height) * 100;
+  //   document.getElementById("myBar").style.width = scrolled + "%";
+  // }
 
   
   const { user, logout } = useContext(AuthContext);
   const menuBar = (
     <div className="header1">
 
-      <div className="headerScroll" style={{}}>
+      {/* <div className="headerScroll" style={{}}>
         <div className="progress-container">
           <div className="progress-bar" id="myBar"></div>
         </div>  
-      </div>
+      </div> */}
 
       <div className="middle-header">
       <Menu
@@ -57,7 +57,7 @@ function MainHeader(props) {
         </Menu.Item> */}
 
         <Menu.Menu position="right" id="right-auth">
-          <Dropdown.Item>
+          <Dropdown.Item hover>
             <Dropdown
               icon="sidebar"
               style={{
@@ -69,12 +69,24 @@ function MainHeader(props) {
               <Dropdown.Menu
                 style={{
                   color: 'black',
-                  backgroundColor: 'rgb(57, 83, 50)',
+                  // backgroundColor: 'rgb(57, 83, 50)',
                   // border: '1px solid white',
                 }}
               > 
             { !user ? (
               <>
+              <Dropdown.Item>
+                <a href="/#project-services" style={{ color: '#fff' }}>
+                  <i className="box icon"></i> {lang.t('Our Services')}{' '}
+                </a>
+              </Dropdown.Item>
+
+              <Dropdown.Item>
+                <a href="/#project-column" style={{ color: '#fff' }}>
+                  <i className="certificate icon"></i> {lang.t('Submit Your Project')}{' '}
+                </a>
+              </Dropdown.Item>
+
               <Dropdown.Item>
                 <Link
                 to={{
@@ -88,7 +100,7 @@ function MainHeader(props) {
                 style={{ color: '#fff' }}
                 id="sign-in"
               >
-                <i className="plus circle icon"></i> {lang.t('Subscribe')}{' '}
+                <i className="user plus icon"></i> {lang.t('Subscribe')}{' '}
               </Link>
               </Dropdown.Item>
 
@@ -131,7 +143,21 @@ function MainHeader(props) {
                     <i className="dashboard icon"></i> {lang.t('Dashboard')}{' '}
                     </Link>
                   </Dropdown.Item>
-                  ) : ' '
+                  ) : (
+                    <>
+                      <Dropdown.Item>
+                        <a href="/#project-services" style={{ color: '#fff' }}>
+                          <i className="box icon"></i> {lang.t('Our Services')}{' '}
+                        </a>
+                      </Dropdown.Item>
+
+                      <Dropdown.Item>
+                        <a href="/#project-column" style={{ color: '#fff' }}>
+                          <i className="certificate icon"></i> {lang.t('Submit Your Project')}{' '}
+                        </a>
+                      </Dropdown.Item>
+                  </>
+                  )
                 }
 
                   <Dropdown.Item

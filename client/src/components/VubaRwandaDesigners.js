@@ -10,14 +10,14 @@ const VubaRwandaDesigners = () => {
     <div className="column" id="column" style={{marginBottom: "80px"}}>     
       <div className="ui card" id="home-card">
         <div className="image" >
-            <Image src={ SEBA_PROFILE_PC } alt="car" className="image-cover"/>
+            <Image src={ SEBA_PROFILE_PC } alt="car" className="image-cover-devs"/>
         </div>
 
         <div className="content">
           <div className="header">Iradukunda Sebastien</div>
             <br />
             <Label className="dev-title"> Designer </Label>
-            <h3 className="developer-role" > Mockup and Logo Designer </h3>
+            <h3 className="developer-role" > Mockups and Logo Designer </h3>
             <h3 className="website"> 
               <Icon name="globe" /> 
               <a href="/#seba"> Sebastien
@@ -26,13 +26,13 @@ const VubaRwandaDesigners = () => {
         </div>
 
         <div className="extra content">
-        <Label.Group size='large'>
-          <Label> Adobe XD</Label>
-          <Label> Figma</Label>
-          <Label> Adobe PhotoShop</Label>
-          <Label> Illustrator</Label>
-          <Label> Adobe InDisign</Label>
-        </Label.Group>
+          <Label.Group>
+            <Label> Adobe XD</Label>
+            <Label> Figma</Label>
+            <Label> Adobe PhotoShop</Label>
+            <Label> Illustrator</Label>
+            <Label> Adobe InDisign</Label>
+          </Label.Group>
         </div>
       </div>
       

@@ -19,6 +19,9 @@ export default gql`
     email: String
     projectName: String
     companyName: String
+    category_id: Int
+    category: ProjCategory
+    companyAddress: String
     body: String
     createdAt: Date
     updatedAt: Date
@@ -35,6 +38,8 @@ export default gql`
     email: String
     projectName: String
     companyName: String
+    category_id: Int
+    companyAddress: String
     body: String!
   }
 
@@ -45,5 +50,12 @@ export default gql`
     projectName: String
     companyName: String
     body: String
+  }
+
+  type ProjCategory {
+    id: Int
+    name: String
+    value: String
+    description: String
   }
 `;

@@ -24,6 +24,14 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      companyAddress: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       companyName: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -38,7 +46,12 @@ export default (sequelize, DataTypes) => {
     },
   );
   ProjectSubmition.associate = function(models) {
-    // associations can be defined here
+    ProjectSubmition.belongsTo(models.ProjectCategory, {
+      as: 'category',
+      foreignKey: 'category_id',
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    });
   };
   return ProjectSubmition;
 };

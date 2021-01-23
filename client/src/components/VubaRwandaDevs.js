@@ -12,7 +12,7 @@ const VubaRwandaDevs = () => {
     <div className="column" id="column" style={{marginBottom: "80px"}}>
       <div className="ui card" id="home-card">
         <div className="image" >
-            <Image src={DOM_PROFILE_PC} alt="car" className="image-cover"/>
+            <Image src={DOM_PROFILE_PC} alt="car" className="image-cover-devs"/>
         </div>
 
         <div className="content">
@@ -30,7 +30,7 @@ const VubaRwandaDevs = () => {
         </div>
 
         <div className="extra content">
-        <Label.Group size='large'>
+        <Label.Group>
           <Label>Nodejs</Label>
           <Label>ReactJs</Label>
           <Label>React Native</Label>
@@ -43,6 +43,7 @@ const VubaRwandaDevs = () => {
           <Label>TDD</Label>
           <Label>HTML5</Label>
           <Label>GraphQL</Label>
+          <Label>SailJs</Label>
           <Label>MongoDB</Label>
           <Label>NPM</Label>
           <Label>PHP/ Laravel/ Yii</Label>
@@ -56,7 +57,7 @@ const VubaRwandaDevs = () => {
     <div className="column" id="column" style={{marginBottom: "80px"}}>
       <div className="ui card" id="home-card">
         <div className="image" >
-            <Image src={ AUDACE_PROFILE_PC } alt="car" className="image-cover"/>
+            <Image src={ AUDACE_PROFILE_PC } alt="car" className="image-cover-devs"/>
         </div>
 
         <div className="content">
@@ -72,7 +73,7 @@ const VubaRwandaDevs = () => {
         </div>
 
         <div className="extra content">
-          <Label.Group size='large'>
+          <Label.Group>
             <Label>Nodejs</Label>
             <Label>ReactJs</Label>
             <Label>JavaScript</Label>
@@ -98,7 +99,7 @@ const VubaRwandaDevs = () => {
     {/* <div className="column" id="column" style={{marginBottom: "80px"}}>
       <div className="ui card" id="home-card">
         <div className="image" >
-            <Image src={ KAGAME_PROFILE_PC } alt="car" className="image-cover"/>
+            <Image src={ KAGAME_PROFILE_PC } alt="car" className="image-cover-devs"/>
         </div>
 
         <div className="content">
@@ -114,7 +115,7 @@ const VubaRwandaDevs = () => {
         </div>
 
         <div className="extra content">
-          <Label.Group size='large'>
+          <Label.Group>
             <Label>Nodejs</Label>
             <Label>ReactJs</Label>
             <Label>JavaScript</Label>                       

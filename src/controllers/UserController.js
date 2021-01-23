@@ -4,14 +4,6 @@ import {
   ApolloError,
 } from 'apollo-server';
 
-import getPagination from '../helpers/getPagination';
-import translate from '../locales';
-import { User, Role } from '../database/models';
-import errorHandler from '../helpers/errorHandler';
-import {
-  generate as generateToken,
-  decode as decodeToken,
-} from '../utils/tokens';
 import {
   USER_NOT_FOUND,
   ACCOUNT_NOT_VERIFIED,
@@ -20,7 +12,6 @@ import {
   PASSWORD_NOT_MATCH,
   INVALID_TOKEN,
 } from 'constants/errorMessages';
-
 import {
   ACCOUNT_VERIFIED,
   SUCCESSFULLY_DELETED,
@@ -28,6 +19,15 @@ import {
   SUCCESS_PASSWORD_RESET,
 } from 'constants/successMessages';
 import { HTTP_NOT_FOUND } from 'constants/httpStatusCodes';
+import getPagination from '../helpers/getPagination';
+import translate from '../locales';
+import { User, Role } from '../database/models';
+import errorHandler from '../helpers/errorHandler';
+import {
+  generate as generateToken,
+  decode as decodeToken,
+} from '../utils/tokens';
+
 import { hashPassword } from '../utils/password';
 
 /**
@@ -41,7 +41,12 @@ export default class UserController {
    */
   static async create(data, { language }) {
     try {
-      const user = await User.create(data);
+      const user = await User.create(
+        {
+          ...data,
+          email: data.email.toLowerCase()
+        }
+      );
       delete user.dataValues.password;
       return {
         message: 'User Created Successfully',
@@ -62,7 +67,7 @@ export default class UserController {
    */
   static async login({ email, password }, { language }) {
     const user = await User.findOne({
-      where: { email },
+      where: { email: email.toLowerCase() },
       include: [{ model: Role, as: 'roles' }],
     });
     if (!user) {

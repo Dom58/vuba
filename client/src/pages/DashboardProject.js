@@ -141,8 +141,10 @@ export default function Project() {
                         {/* <Table.HeaderCell>Profile</Table.HeaderCell> */}
                         <Table.HeaderCell>Full Name</Table.HeaderCell>
                         <Table.HeaderCell>Email</Table.HeaderCell>
-                        <Table.HeaderCell>telephone</Table.HeaderCell>
-                        <Table.HeaderCell>projectName</Table.HeaderCell>
+                        <Table.HeaderCell>Telephone</Table.HeaderCell>
+                        <Table.HeaderCell>Category</Table.HeaderCell>
+                        <Table.HeaderCell>ProjectName</Table.HeaderCell>
+                        <Table.HeaderCell>Company Address</Table.HeaderCell>
                         <Table.HeaderCell>Description</Table.HeaderCell>                
                         <Table.HeaderCell>CreatedAt</Table.HeaderCell>                
                         <Table.HeaderCell>Options</Table.HeaderCell>
@@ -160,7 +162,9 @@ export default function Project() {
                               <Table.Cell>{project.fullName}</Table.Cell>
                               <Table.Cell><a href={`mailto:${project.email}?subject=${project.projectName}+Received`}>{project.email}</a></Table.Cell>
                               <Table.Cell><a href={`tel:${project.telephone}`}> {project.telephone} </a></Table.Cell>
+                              <Table.Cell><b style={{color: 'brown'}}>{project.category.name}</b></Table.Cell>
                               <Table.Cell>{project.projectName ? project.projectName.substr(0, 20)+'...': '-'}</Table.Cell>
+                              <Table.Cell>{project.companyAddress}</Table.Cell>
                               <Table.Cell>{project.body? project.body.substr(0, 20)+'...': '-'}</Table.Cell>
                               <Table.Cell>
                                 {moment(project.createdAt).format('LLL')}

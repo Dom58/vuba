@@ -22,6 +22,7 @@ const en = {
   'Invalid email': 'Invalid email',
   'Project not found!': 'Project not found!',
   'Feedback not found!': 'Feedback not found!',
+  'Category not found!': 'Category not found!',
 
   // Success Messages
   'This account is now verified': 'This account is now verified',

@@ -1,4 +1,4 @@
-import isAuth from '../../helpers/isAuth';
+import { isAuth } from '../../helpers/isAuth';
 import ProjectController from '../../controllers/ProjectController';
 
 export default {

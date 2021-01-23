@@ -24,7 +24,7 @@ import {
   GET_CONTACTS,
 } from '../graphql/queries/contacts';
 
-export default function Project() {
+export default function ContactUs() {
   const { user } = useContext(AuthContext);
 
   const headers = [

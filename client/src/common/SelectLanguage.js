@@ -37,7 +37,7 @@ const SelectLanguage = ({ defaultValue }) => {
   }, [defaultValue, changeLanguage]);
 
   return (
-    <div className="SelectLanguage">
+    <div className="SelectLanguage" style={{backgroundColor: 'white', color: 'black'}}>
       <Icon name="world" />
       <Dropdown
         options={languages}

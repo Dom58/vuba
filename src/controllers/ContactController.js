@@ -8,7 +8,7 @@ import { CONTACT_NOT_FOUND } from '../constants/errorMessages';
 /**
  * Project Controller
  */
-export default class ProjectController {
+export default class ContactController {
 
   /**
    * Create the project

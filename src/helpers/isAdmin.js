@@ -1,7 +1,7 @@
 import { AuthenticationError } from 'apollo-server';
 
-import { NOT_AUTHORIZED } from '../constants/errorMessages';
 import { UserRole, Role } from 'database/models';
+import { NOT_AUTHORIZED } from '../constants/errorMessages';
 
 /**
  * Check if user is an admin

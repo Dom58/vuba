@@ -12,14 +12,14 @@ const VubaRwandaTranslators = () => {
     <div className="column" id="column" style={{marginBottom: "80px"}}> 
       <div className="ui card" id="home-card">
         <div className="image" >
-            <Image src={ NOELLA_PROFILE_PC } alt="car" className="image-cover"/>
+            <Image src={ NOELLA_PROFILE_PC } alt="car" className="image-cover-devs"/>
         </div>
 
         <div className="content">
           <div className="header">Kanyamuneza Marie Noella</div>
             <br />
             <Label className="dev-title"> Translator </Label>
-            <h3 className="developer-role" > French Translator </h3>
+            <h3 className="developer-role" > French & Kirundi Translator</h3>
             <h3 className="website"> 
               <Icon name="globe" /> 
               <a href="/#noella"> Noella
@@ -28,7 +28,7 @@ const VubaRwandaTranslators = () => {
         </div>
 
         <div className="extra content">
-        <Label.Group size='large'>
+        <Label.Group>
           {/* <Label>IOs</Label> */}
         </Label.Group>
         </div>
@@ -39,7 +39,7 @@ const VubaRwandaTranslators = () => {
     <div className="column" id="column" style={{marginBottom: "80px"}}>
       <div className="ui card" id="home-card">
         <div className="image" >
-            <Image src={ DAMAS_PROFILE_PC } alt="car" className="image-cover"/>
+            <Image src={ DAMAS_PROFILE_PC } alt="car" className="image-cover-devs"/>
         </div>
 
         <div className="content">
@@ -55,7 +55,7 @@ const VubaRwandaTranslators = () => {
         </div>
 
         <div className="extra content">
-          <Label.Group size='large'>
+          <Label.Group>
             {/* <Label>IOs</Label> */}
           </Label.Group>
         </div>

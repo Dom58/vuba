@@ -14,8 +14,9 @@ const LoginForm = ({
 }) => {
   return (
     <Form.Field>
-      <div className="contact-us-divs">
-        <div className="form-inputs">
+      <div className="contact-us-divs" >
+        <div className="form-inputs" id="auth">
+          <h1 style={{fontSize: '40px', color: '#f36405'}}>LOGIN</h1>
           <p>Email: </p>
           <input
             placeholder="Email..."
@@ -48,7 +49,7 @@ const LoginForm = ({
             {lang.t('LOGIN')}
           </Button>
           <h3>
-            New user? <Link to="/auth/signup"> Subscribe here</Link>
+            New user? <Link to="/auth/signup"> Subscribe Here</Link>
           </h3>
         </div>
       </div>

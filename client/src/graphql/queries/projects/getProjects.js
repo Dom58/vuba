@@ -10,6 +10,14 @@ export const GET_PROGECTS = gql`
         email
         projectName
         companyName
+        companyAddress
+        category_id
+        category {
+          id
+          name
+          value
+          description
+        }
         body
         createdAt
         updatedAt

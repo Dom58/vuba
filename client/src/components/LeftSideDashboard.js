@@ -27,6 +27,20 @@ function LeftSideDashboard() {
           <List.Content>
             <List.Header>
               {' '}
+              <Icon name="search" />
+              <Link to="/dashboard/all/project-categories">
+                {' '}
+                Project Categories{' '}
+              </Link>
+            </List.Header>
+          </List.Content>
+        </List.Item>
+        <Divider />
+
+        <List.Item>
+          <List.Content>
+            <List.Header>
+              {' '}
               <Icon name="balance scalear" />
               <Link to="/dashboard/all/projects"> Submitted projects</Link>
             </List.Header>

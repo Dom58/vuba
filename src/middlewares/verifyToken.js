@@ -1,6 +1,6 @@
 import { HTTP_UNAUTHORIZED } from 'constants/httpStatusCodes';
-import { decode as decodeToken } from '../utils/tokens';
 import { NOT_SIGNED_IN, INVALID_TOKEN } from 'constants/errorMessages';
+import { decode as decodeToken } from '../utils/tokens';
 
 export default async (req, res, next) => {
   const token = req.headers['access-token'] || req.params.token || null;

@@ -15,7 +15,8 @@ const SignupForm = ({
   return (
     <Form.Field>
       <div className="contact-us-divs">
-        <div className="form-inputs">
+      <div className="form-inputs" id="auth">
+          <h1 style={{fontSize: '40px', color: '#f36405'}}>SUBSCRIBE</h1>
           <p>{lang.t('Full Name')}: </p>
           <input
             placeholder="Full Name..."
@@ -27,7 +28,7 @@ const SignupForm = ({
 
           <p>Email: </p>
           <input
-            placeholder="Email... Eg: username@examples.com"
+            placeholder="Eg: username@examples.com"
             name="email"
             type="email"
             onChange={onChangeHandle}
@@ -58,7 +59,7 @@ const SignupForm = ({
           <i className="send icon"></i> {lang.t('SUBSCRIBE')}
           </Button>
           <h3>
-            Have an account? <Link to="/auth/login"> Login here</Link>
+            Have an account? <Link to="/auth/login"> Login Here</Link>
           </h3>
         </div>
       </div>

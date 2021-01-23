@@ -1,14 +1,48 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+html {
+  --scrollbarBG: #CFD8DC;
+  --thumbBG: #90A4AE;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    /* color: #000000; */
+    line-height: 25px;
+    font-size: 14px !important;
+    /* background: url('./assets/imigongo.png') no-repeat; */
+    /* background-position: center;
+    background-size: cover;
+    background-attachment: fixed; */
+}
+
+/* body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #241e20;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f15921;
+  border-radius: 5px;
+} */
+
+::selection {
+  background: #154b07 !important;
+  color: #ffffff !important;
+}
+
+a, a:hover, a:active, a:focus {
+  text-decoration-color: none !important;
+  text-decoration: none !important;
+  outline: none;
+  color: inherit;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }

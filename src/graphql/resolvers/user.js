@@ -1,4 +1,4 @@
-import isAuth from '../../helpers/isAuth';
+import { isAuth } from '../../helpers/isAuth';
 import UserController from '../../controllers/UserController';
 
 export default {

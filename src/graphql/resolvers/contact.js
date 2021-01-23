@@ -1,4 +1,4 @@
-import isAuth from '../../helpers/isAuth';
+import { isAuth } from '../../helpers/isAuth';
 import ContactController from '../../controllers/ContactController';
 
 export default {

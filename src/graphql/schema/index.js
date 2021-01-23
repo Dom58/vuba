@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-express';
 import userSchema from './user';
 import projectSubmissionSchema from './projectSubmission';
 import contactSchema from './contact';
+import projectCategorySchema from './projectCategory';
 
 const generalSchema = gql`
   type Query {
@@ -32,5 +33,5 @@ export default
   userSchema, 
   projectSubmissionSchema,
   contactSchema,
-  
+  projectCategorySchema,
 ];
