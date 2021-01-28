@@ -1,20 +1,24 @@
 import gql from 'graphql-tag';
 
-export const CREATE_PROJECT_CATEGORY = gql`
-  mutation createProjectCategory(
-    $name: String!
+export const UPDATE_CATEGORY = gql`
+  mutation updateProjectCategory(
+    $id: ID
+    $name: String
     $description: String
+    $createdAt: Date
   ) {
-    createProjectCategory(
+    updateProjectCategory(
       data: {
+        id: $id
         name: $name
         description: $description
+        createdAt: $createdAt
       }
     ) {
       id
       name
-      description
       value
+      description
       createdAt
       updatedAt
     }

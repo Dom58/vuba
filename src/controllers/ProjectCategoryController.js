@@ -33,7 +33,7 @@ export default class ProjectCategoryController {
   }
 
   /**
-   * fetch all Submitted Project
+   * fetch catefories
    * @param {object} args - the query arguments
    * @returns {Promise} - Returns
   */
@@ -45,6 +45,19 @@ export default class ProjectCategoryController {
   
   return { data: projectCategories };
 }
+
+/**
+   * fetch category
+   * @param {object} args - the query arguments
+   * @returns {Promise} - Returns
+  */
+ static async getProjectCategory(id, { language }) {
+  const findCategory = await ProjectCategory.findOne({ where: { id } });
+  if (!findCategory) {
+    throw new ApolloError(CATEGORY_NOT_FOUND(language), HTTP_NOT_FOUND);
+  }
+  return findCategory;
+ }
 
 /**
  * delete projectCategory by id
@@ -60,7 +73,7 @@ static async deleteProjectCategory( id, { language }) {
     }
 
     await ProjectCategory.destroy({ where: { id } });
-    return SUCCESSFULLY_DELETED(language);
+    return { message: SUCCESSFULLY_DELETED(language) };
   } catch (err) {
     const error = errorHandler(err, language);
     throw new ApolloError(error.message, error.code, error);

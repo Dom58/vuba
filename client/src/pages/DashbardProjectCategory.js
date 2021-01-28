@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {
   Divider,
   Grid,
@@ -7,7 +7,8 @@ import {
   Button,
   Form,
   Container,
-  Accordion
+  Accordion,
+  Modal
 } from 'semantic-ui-react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import moment from 'moment';
@@ -24,19 +25,38 @@ import { searchInTableFunc } from '../helpers/searchInTable';
 import Spinner from '../common/Spinner';
 import {
   GET_CATEGORIES,
+  GET_CATEGORY
 } from '../graphql/queries/projectCategories';
-import { CREATE_CPROJECT_CATEGORY } from '../graphql/mutations/projectCategory';
+import { 
+  CREATE_PROJECT_CATEGORY,
+  DELETE_CATEGORY,
+  UPDATE_CATEGORY 
+} from '../graphql/mutations/projectCategory';
 
 export default function DashbardProjectCategory() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
-	const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [openUpdating, setOpenUpdating ] = useState(false);
   const [variables, setVariables] = useState({
     name: '',
     description: '',
   });
   const [errors, setErrors] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [values, setValues] = useState({ id: 0 });
+  const [theId, setId] = useState(0)
+  const [updateVariables, setUpdateVariables] = useState({
+    id: values.id,
+    name: '',
+    description: '',
+    createdAt: new Date(),
+  });
+
+  const close = () => {
+    setOpen(false);
+  }
 
   const onChangeHandle = ({ target: { name, value } }) => {
     setVariables({
@@ -44,6 +64,18 @@ export default function DashbardProjectCategory() {
       [name]: value,
     });
   }
+
+  const onChangeUpdateHandle = ({ target: { name, value } }) => {
+    setUpdateVariables({
+      ...updateVariables,
+      [name]: value,
+    });
+    setErrors({
+      ...errors,
+      [name]: '',
+    });
+  };
+
   const handleClick = (e, titleProps) => {
 		const { index } = titleProps;
 		const newIndex = activeIndex === index ? -1 : index;
@@ -56,7 +88,15 @@ export default function DashbardProjectCategory() {
     error,
   } = useQuery(GET_CATEGORIES);
 
-  const [createProjectCategory] = useMutation(CREATE_CPROJECT_CATEGORY, {
+  const {
+    data: { getProjectCategory } = {},
+    loading: loadingCategory,
+    error: categoryError,
+  } = useQuery(GET_CATEGORY , {
+    variables: { id: theId },
+  }) || {};
+
+  const [createProjectCategory] = useMutation(CREATE_PROJECT_CATEGORY, {
     update(
       proxy,
       {
@@ -79,6 +119,63 @@ export default function DashbardProjectCategory() {
     refetchQueries: [{ query: GET_CATEGORIES }],
     awaitRefetchQueries: true
   });
+
+  const [deleteProjectCategory, { loading: DeleteLoading }] = useMutation(
+    DELETE_CATEGORY,
+    {
+      update(
+        proxy,
+        {
+          data: {
+            deleteProjectCategory: { message },
+          },
+        },
+      ) {
+        toast.success(`${lang.t(message)}`);
+      },
+      onError(err) {
+        if (err.graphQLErrors.length > 0) {
+          let onerr = err.graphQLErrors[0].message.split(',');
+          setErrors(onerr);
+        }
+      },
+      variables: { id: values.id },
+      refetchQueries: [{ query: GET_CATEGORIES }],
+      awaitRefetchQueries: true
+    },
+  );
+
+  const [updateProjectCategory] = useMutation(UPDATE_CATEGORY, {
+    update(proxy, { data }) {
+      toast.success(
+        `${lang.t('Category updated successfully!')}`,
+      );
+    },
+    onError(err) {
+      if (err) {
+        const onerr = err.graphQLErrors[0].message.split(',');
+        setErrors(onerr);
+        displayError(err);
+      }
+      setOpenUpdating(false);
+    },
+    variables: {
+      ...updateVariables,
+      id: theId,
+    },
+    refetchQueries: [{ query: GET_CATEGORIES }],
+    awaitRefetchQueries: true
+  });
+
+  useEffect(() => {
+    if (getProjectCategory) {
+			setUpdateVariables({
+        name: getProjectCategory.name,
+        description: getProjectCategory.description,
+        createdAt: getProjectCategory.createdAt,
+      });
+		}
+  }, [getProjectCategory]);
 
   const handleSubmit = async () => {
     const {
@@ -106,6 +203,26 @@ export default function DashbardProjectCategory() {
     }
   }
 
+  const onClickDelete = (id) => {
+    setOpen(true)
+    setValues({ id: id });
+  }
+
+  const onDeleteHandler = () => {
+    deleteProjectCategory();
+    setOpen(false);
+  }
+
+  const onClickUpdate = (id) => {
+    setOpenUpdating(true);
+    setId(id);
+  }
+
+  const onUpdateHandler =() => {
+    updateProjectCategory();
+    setOpenUpdating(false);
+  }
+
   if(errors) {
     console.log(errors);
     console.clear();
@@ -129,6 +246,7 @@ export default function DashbardProjectCategory() {
       </>
     );
   }
+
   return (
     <>
       <MainHeader />
@@ -200,7 +318,7 @@ export default function DashbardProjectCategory() {
                   <Form.Input
                     icon="search"
                     iconPosition="left"
-                    placeholder="Search contact..."
+                    placeholder="Search..."
                     id="searchInput"
                     onKeyUp={() => searchInTableFunc()}
                   />
@@ -218,53 +336,173 @@ export default function DashbardProjectCategory() {
                         <Table.HeaderCell>Options</Table.HeaderCell>
                       </Table.Row>
                     </Table.Header>
-
-                    <Table.Body>
+                    
                       {!theLoading ? (
                         data &&
-                        data.map((contact, index) => (
-                          <Table.Row key={index + 1}>
-                            <Table.Cell>{index + 1}</Table.Cell>
-                            <Table.Cell>{contact.name}</Table.Cell>
-                            {/* <Table.Cell>{contact.value}</Table.Cell> */}
-                            <Table.Cell>{contact.description}</Table.Cell>
-                            <Table.Cell>
-                              {moment(contact.createdAt).format('LL')}
-                            </Table.Cell>
-                            <Table.Cell>
-                              {user && user.role === 'admin' ? (
-                                <>
-                                <Button
-                                    primary
-                                    icon="edit"
-                                    title="Edit Category"
-                                    style={{
-                                      color: 'white',
-                                    }}
-                                  />
+                        data.map((category, index) => (
+                          <Table.Body>
+                            <Table.Row key={index + 1}>
+                              <Table.Cell>{index + 1}</Table.Cell>
+                              <Table.Cell>{category.name}</Table.Cell>
+                              {/* <Table.Cell>{category.value}</Table.Cell> */}
+                              <Table.Cell>{category.description}</Table.Cell>
+                              <Table.Cell>
+                                {moment(category.createdAt).format('LL')}
+                              </Table.Cell>
+                              <Table.Cell>
+                                {user && user.role === 'admin' ? (
+                                  <>
                                   <Button
-                                    icon="trash"
-                                    title="Delete Project Category"
-                                    style={{
-                                      backgroundColor: 'brown',
-                                      color: 'white',
-                                    }}
-                                  />
-                                </>
-                              ) : (
-                                ' '
-                              )}
-                            </Table.Cell>
-                          </Table.Row>
+                                      primary
+                                      icon="edit"
+                                      title="Edit Category"
+                                      style={{
+                                        color: 'white',
+                                      }}
+                                      onClick={() => onClickUpdate(category.id)}
+                                    />
+                                    <Button
+                                      icon="trash"
+                                      title="Delete Project Category"
+                                      style={{
+                                        backgroundColor: 'brown',
+                                        color: 'white',
+                                      }}
+                                      onClick={() => onClickDelete(category.id)}
+                                    />
+                                  </>
+                                ) : (
+                                  ' '
+                                )}
+                              </Table.Cell>
+                            </Table.Row>
+                            {
+                              open && (
+                                <Modal size="tiny" open={open} onClose={close}>
+                                  <Modal.Header>Do you want to delete this category?</Modal.Header>
+                                  <Modal.Content>
+                                    <p style={{ color: "black" }}>
+                                      <b style={{ color: "brown" }}>
+                                          <i className="info circular icon"></i>
+                                      </b>
+                                      If you click on Delete Button, This category will be deleted permanently!
+                                    </p>
+                                  </Modal.Content>
+                                  <Modal.Actions>
+                                    {
+                                      DeleteLoading ? <Spinner /> :
+                                        (
+                                          <>
+                                            <button
+                                              positive
+                                              icon='trash'
+                                              labelPosition='right'
+                                              content='YES'
+                                              onClick={onDeleteHandler}
+                                              className= 'modelButton'
+                                              style={{ backgroundColor: "#005ac2" }}
+                                            >
+                                              Yes
+                                            </button>
+
+                                            <button
+                                              className= 'modelButton'
+                                              onClick={() => setOpen(false)}
+                                              style={{ backgroundColor: "gray" }}
+                                            >
+                                              No
+                                            </button>
+                                          </>
+                                        )
+                                    }
+                                  </Modal.Actions>
+                                </Modal>
+                              )
+                            }
+
+                            {/* +++++++++++++++ Updating ++++++++++++ */}
+                            { 
+                              openUpdating && (
+                                <Modal
+                                  size="tiny"
+                                  open={openUpdating}
+                                  onClose={() => setOpenUpdating(false)}
+                                  closeIcon
+                                >
+                                  <Modal.Header>
+                                    UPDATE 
+                                  </Modal.Header>
+                                  {!loadingCategory && !categoryError ? (
+                                    <>
+                                      <Modal.Content
+                                        style={{
+                                          backgroundColor:
+                                            '#f1eeee',
+                                        }}
+                                      >
+                                        <div>
+                                          <h5>Category Name: </h5>
+                                          <input
+                                            name="name"
+                                            type="text"
+                                            value={updateVariables.name}
+                                            onChange={onChangeUpdateHandle}
+                                          />
+
+                                          <h5>Category Name: </h5>
+                                          <input
+                                            name="description"
+                                            type="text"
+                                            value={updateVariables.description}
+                                            onChange={onChangeUpdateHandle}
+                                          />
+
+                                          <h5>CreatedAt: </h5>
+                                          <input
+                                            name="createdAt"
+                                            type="date"
+                                            value={updateVariables.createdAt}
+                                            onChange={onChangeUpdateHandle}
+                                          />
+                                        </div>       
+                                      </Modal.Content>
+                                      <Modal.Actions>
+                                        <button
+                                          positive
+                                          icon='trash'
+                                          labelPosition='right'
+                                          content='YES'
+                                          onClick={onUpdateHandler}
+                                          className= 'modelButton'
+                                          style={{ backgroundColor: "#005ac2" }}
+                                        >
+                                          Update
+                                        </button>
+
+                                        <button
+                                          className= 'modelButton'
+                                          onClick={() => setOpenUpdating(false)}
+                                          style={{ backgroundColor: "gray" }}
+                                        >
+                                          Cancel
+                                        </button>
+                                      </Modal.Actions>
+                                    </>
+                                  ): <Spinner />}
+                                </Modal>
+                              )
+                            }
+                          </Table.Body>
                         ))
                       ) : (
-                        <Table.Row>
-                          <Table.Cell className="loader-centered">
-                            <Spinner />
-                          </Table.Cell>
-                        </Table.Row>
+                        <Table.Body>
+                          <Table.Row>
+                            <Table.Cell className="loader-centered">
+                              <Spinner />
+                            </Table.Cell>
+                          </Table.Row>
+                        </Table.Body>
                       )}
-                    </Table.Body>
                   </Table>
                 </div>
                 <Divider hidden />

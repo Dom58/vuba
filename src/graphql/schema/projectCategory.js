@@ -8,7 +8,7 @@ export default gql`
 
   extend type Mutation {
     createProjectCategory(data: ProjectCategoryInput!): ProjectCategory!
-    deleteProjectCategory(id: ID!): String
+    deleteProjectCategory(id: ID!): Message
     updateProjectCategory(data: UpdateProjectCategoryInput!): ProjectCategory!
   }
 
@@ -35,5 +35,6 @@ export default gql`
     id: ID
     name: String
     description: String
+    createdAt: Date
   }
 `;

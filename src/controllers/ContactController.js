@@ -54,7 +54,7 @@ static async deleteContact( id, { language }) {
   }
 
   await Contact.destroy({ where: { id } });
-  return SUCCESSFULLY_DELETED(language);
+  return { message: SUCCESSFULLY_DELETED(language) };
 
   } catch (err) {
   const error = errorHandler(err, language);

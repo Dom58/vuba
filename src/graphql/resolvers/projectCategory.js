@@ -9,10 +9,10 @@ export default {
 
       return ProjectCategoryController.getProjectCategories(args, context);
     },
-    getProjectCategory: async (parent, args, context) => {
+    getProjectCategory: async (parent, {id}, context) => {
     //   const { user } = context;
     //   isAuth(user);
-      return ProjectCategoryController.getProjectCategory(args, context);
+      return ProjectCategoryController.getProjectCategory(id, context);
     },
   },
 

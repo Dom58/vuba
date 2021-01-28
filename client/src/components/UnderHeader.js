@@ -15,7 +15,7 @@ const UnderHeader = () => {
         by developping their web applications, android applications, IOs applications and desktop applications at lower price.
       </p>
 
-      <h1>{lang.t('Our Keys')} </h1>
+      <h1>{lang.t('Our Core Values')} </h1>
       <div className="Separator"></div>
 
       <div className="timeline">

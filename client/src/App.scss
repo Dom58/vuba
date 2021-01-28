@@ -764,3 +764,17 @@ input::placeholder {
     margin-left: 30% !important;
   }
 }
+
+.modelButton {
+  padding: 10px;
+  margin: 8px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.modelButton:hover {
+  opacity: .7;
+}

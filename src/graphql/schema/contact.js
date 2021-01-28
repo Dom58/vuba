@@ -8,7 +8,7 @@ export default gql`
 
   extend type Mutation {
     createContact(data: ContactInput!): Contact!
-    deleteContact(id: ID!): String
+    deleteContact(id: ID!): Message
     updateContact(data: UpdateContactInput!): Contact!
   }
 
